@@ -29,6 +29,7 @@ app.get("/",(req,res)=>{
 // CORS configuration for production
 app.use(cors({
     origin: "https://urvann-fe.vercel.app",
+    // origin: "http://localhost:3000",
     credentials: true
 }));
 
