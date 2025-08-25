@@ -6,8 +6,8 @@ A robust Node.js/Express.js backend API for the Urvann Plant Application, provid
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd Backend
+   git clone https://github.com/guptaravimp/urvann_bee.git
+   cd urvann_bee
    ```
 
 2. **Install dependencies**
@@ -25,14 +25,20 @@ A robust Node.js/Express.js backend API for the Urvann Plant Application, provid
    API_SECRET=your_cloudinary_api_secret
    NODE_ENV=development
    ```
+4 ### CORS Configuration
+The API is configured for production with specific origin:
+```javascript
+app.use(cors({
+    origin: "https://urvann-fe.vercel.app",
+    credentials: true
+}));
+```
 
-4. **Start the server**
+5. **Start the server**
    ```bash
    # Development mode
    npm run dev
    
-   # Production mode
-   npm start
    ```
 
 ## 📁 Project Structure
@@ -132,43 +138,6 @@ Content-Type: application/json
 }
 ```
 
-## 🗄️ Database Models
-
-### Plant Schema
-```javascript
-{
-  plantName: String (required),
-  plantPrice: Number (required),
-  plantImage: String (required),
-  plantDescription: String,
-  plantCategories: [ObjectId] (required),
-  plantAvailability: String (default: "In Stock"),
-  timestamps: true
-}
-```
-
-### Category Schema
-```javascript
-{
-  categoryName: String (required),
-  categoryDescription: String,
-  timestamps: true
-}
-```
-
-## 🔒 Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `PORT` | Server port number | No (default: 5000) |
-| `MONGODB_URL` | MongoDB connection string | Yes |
-| `CLOUD_NAME` | Cloudinary cloud name | Yes |
-| `API_KEY` | Cloudinary API key | Yes |
-| `API_SECRET` | Cloudinary API secret | Yes |
-| `NODE_ENV` | Environment mode | No |
-
-## 🚀 Deployment
-
 ### Vercel Deployment
 The project includes `vercel.json` for easy deployment on Vercel:
 
@@ -190,61 +159,7 @@ The project includes `vercel.json` for easy deployment on Vercel:
 }
 ```
 
-### Manual Deployment
-1. Set up environment variables on your hosting platform
-2. Install dependencies: `npm install --production`
-3. Start the server: `npm start`
 
-## 🧪 Development
 
-### Available Scripts
-- `npm start` - Start production server
-- `npm run dev` - Start development server with nodemon
-- `npm test` - Run tests (not configured yet)
 
-### Development Workflow
-1. Make changes to the code
-2. Test locally with `npm run dev`
-3. Ensure all environment variables are set
-4. Test API endpoints
-5. Deploy to production
 
-## 🔧 Configuration
-
-### CORS Configuration
-The API is configured for production with specific origin:
-```javascript
-app.use(cors({
-    origin: "https://urvann-fe.vercel.app",
-    credentials: true
-}));
-```
-
-### File Upload Configuration
-- Maximum file size: 50MB
-- Temporary file directory: `/tmp/`
-- Debug mode enabled in development
-
-## 🐛 Error Handling
-
-The application includes comprehensive error handling:
-- Environment variable validation
-- Global error middleware
-- File upload error handling
-- Database connection error handling
-
-## 📝 License
-
-ISC License
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For support and questions, please contact the development team or create an issue in the repository.
