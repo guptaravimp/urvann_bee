@@ -69,17 +69,14 @@ Backend/
 
 #### Get All Plants
 ```
-GET /api/v1/plant
+GET /api/v1/plant/getAllPlants
 ```
 
-#### Get Plant by ID
-```
-GET /api/v1/plant/:id
-```
+
 
 #### Create New Plant
 ```
-POST /api/v1/plant
+POST /api/v1/plant/addPlant
 Content-Type: application/json
 
 {
@@ -91,30 +88,13 @@ Content-Type: application/json
 }
 ```
 
-#### Update Plant
-```
-PUT /api/v1/plant/:id
-Content-Type: application/json
 
-{
-  "plantName": "String",
-  "plantPrice": Number,
-  "plantDescription": "String",
-  "plantCategories": ["Category IDs"],
-  "plantAvailability": "String"
-}
-```
-
-#### Delete Plant
-```
-DELETE /api/v1/plant/:id
-```
 
 ### Image Upload
 
 #### Upload Image
 ```
-POST /api/v1/upload/image
+POST /api/v1/upload//imageUpload
 Content-Type: multipart/form-data
 
 file: [Image file]
@@ -124,12 +104,12 @@ file: [Image file]
 
 #### Get All Categories
 ```
-GET /api/v1/plant/categories
+GET /api/v1/plant/getAllCategories
 ```
 
 #### Create Category
 ```
-POST /api/v1/plant/category
+POST /api/v1/plant//addCategory
 Content-Type: application/json
 
 {
